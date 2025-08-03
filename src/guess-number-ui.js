@@ -9,6 +9,10 @@ export function setupGuessNumberUI() {
       <input type="number" id="guess-input" min="1" max="100" placeholder="Digite seu palpite" />
       <button id="guess-btn">Chutar</button>
       <p id="message"></p>
+      <div id="guesses-container" style="width:100%;margin-top:1.2em;text-align:left;">
+        <strong>Seus palpites:</strong>
+        <span id="guesses-list" style="display:inline-block;margin-left:0.5em;color:var(--color-accent);"></span>
+      </div>
       <button id="restart-btn" style="display:none;">Jogar Novamente</button>
     </div>
   `;
@@ -19,13 +23,23 @@ export function setupGuessNumberUI() {
   const message = document.getElementById('message');
   const restartBtn = document.getElementById('restart-btn');
 
+  // Foco automático ao carregar
+  guessInput.focus();
+
+  const guessesList = document.getElementById('guesses-list');
+  let guesses = [];
+
   function handleGuess() {
     const guess = Number(guessInput.value);
     const result = game.guess(guess);
     if (!guess || guess < game.min || guess > game.max) {
       message.textContent = `Digite um número válido entre ${game.min} e ${game.max}.`;
+      guessInput.classList.add('shake');
+      setTimeout(() => guessInput.classList.remove('shake'), 400);
       return;
     }
+    guesses.push(guess);
+    guessesList.textContent = guesses.join(', ');
     if (result.status === 'correct') {
       message.textContent = `Parabéns! Você acertou em ${result.attempts} tentativas!`;
       guessBtn.disabled = true;
@@ -53,6 +67,8 @@ export function setupGuessNumberUI() {
     guessBtn.disabled = false;
     guessInput.disabled = false;
     guessInput.value = '';
+    guesses = [];
+    guessesList.textContent = '';
     restartBtn.style.display = 'none';
     guessInput.focus();
   });
