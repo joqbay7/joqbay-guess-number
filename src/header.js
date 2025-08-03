@@ -12,8 +12,8 @@ export function renderHeader() {
           <span class="navbar-toggle-icon"></span>
         </button>
         <ul class="navbar-links" id="navbar-links">
-          <li><a href="https://github.com/seu-usuario" target="_blank" rel="noopener" class="cta-link" aria-label="Ir para o GitHub">GitHub</a></li>
-          <li><a href="https://linkedin.com/in/seu-usuario" target="_blank" rel="noopener" class="cta-link" aria-label="Ir para o LinkedIn">LinkedIn</a></li>
+          <li><a href="https://github.com/joqbay7/joqbay-guess-number.git" target="_blank" rel="noopener" class="cta-link" aria-label="Ir para o GitHub">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/julio-cezar-maciel-567ab8374/" target="_blank" rel="noopener" class="cta-link" aria-label="Ir para o LinkedIn">LinkedIn</a></li>
         </ul>
       </nav>
     </header>
