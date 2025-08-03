@@ -2,7 +2,7 @@
 export function renderFooter() {
   document.body.insertAdjacentHTML('beforeend', `
     <footer class="footer">
-      <p>&copy; ${new Date().getFullYear()} Seu Nome. Projeto para Alura + Oracle Next Education.</p>
+      <p>&copy; ${new Date().getFullYear()} Julio Joqbay. Projeto para Oracle Next Education + Alura.</p>
     </footer>
   `);
 }
